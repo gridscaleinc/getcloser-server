@@ -1,0 +1,1 @@
+package com.gridscale.mpath.jpa.repository;
