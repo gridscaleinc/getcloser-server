@@ -1,0 +1,7 @@
+docker exec -it [docker image id] /bin/bash
+
+$> mysql --user root --password
+
+passwrd: dbmaster
+
+mysql> create database MessagePath
