@@ -5,6 +5,17 @@ networks:
     driver: bridge
 
 services:
+  db:
+    image: mysql:8.0.19
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    networks:
+      - kafka-net
+    environment:
+      MYSQL_ROOT_PASSWORD: dbmaster
+    ports:
+      - 3306:3306
+
   zookeeper-server:
     image: 'bitnami/zookeeper:3'
     networks:
@@ -16,7 +27,7 @@ services:
   kafka-server1:
     image: 'bitnami/kafka:2.4.0'
     networks:
-      - kafka-net    
+      - kafka-net
     ports:
       - '9092:9092'
     environment:
