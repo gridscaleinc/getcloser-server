@@ -6,9 +6,8 @@ server:
 app:
     kafka:
         bootstrapAddress:  localhost:9092
-    
 spring:
-    
+
     datasource:
         url: jdbc:mysql://localhost:3306/MessagePath
         username: root
