@@ -6,7 +6,7 @@ function setConnected(connected) {
 }
 
 function connect(onMessage) {
-    var socket = new SockJS('/endpoint-getcloser');
+    var socket = new WebSocket('ws://localhost:8080/endpoint-getcloser');
     stompClient = Stomp.over(socket);
     stompClient.connect({}, function (frame) {
         console.log('Connected: ' + frame);
