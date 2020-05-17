@@ -6,6 +6,7 @@ server:
 app:
     kafka:
         bootstrapAddress:  localhost:9092
+        
 spring:
 
     datasource:
@@ -23,10 +24,10 @@ spring:
             group-id: getcloser
             auto-offset-reset: earliest
             key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-            value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+            value-deserializer: com.gridscale.mpath.kafka.MpathObjectDeserializer
             
          producer:
             bootstrap-servers: localhost:9092
             key-serializer: org.apache.kafka.common.serialization.StringSerializer
-            value-serializer: org.apache.kafka.common.serialization.StringSerializer
+            value-serializer: com.gridscale.mpath.kafka.MpathObjectSerializer
  

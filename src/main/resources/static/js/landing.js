@@ -12,14 +12,15 @@ function connect(onMessage) {
         console.log('Connected: ' + frame);
         ws_connected = true;
         stompClient.subscribe('/app/geotag/1', function (greeting) {
-            var content = JSON.parse(greeting.body).content;
+        	console.log("greeting:", greeting);
+            var content = greeting.body;
             onMessage(content);
         });
     });
 }
 
 function sendMessage(message) {
-    stompClient.send("/app/hello", {}, JSON.stringify({ 'name': message }));
+    stompClient.send("/app/hello", {}, message);
 }
 
 var landing = {
